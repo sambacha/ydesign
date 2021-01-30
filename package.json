@@ -3,19 +3,36 @@
   "version": "0.0.0",
   "description": "Yearn Aesthetic",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/es/index.js",
+  "sideEffects": false,
+  "jsnext:main": "dist/index.es.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*.test.js\" --ignore \"**/*.stories.js\"",
+    "storybook:build": "babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*.test.js\" --ignore \"**/*.stories.js\"",
     "build-docs": "build-storybook --docs",
     "build-storybook": "build-storybook",
-    "lint": "yarn lint:js && yarn lint:package",
+    "storybook:lint": "yarn lint:js && yarn lint:package",
     "lint:js": "cross-env NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mjs --report-unused-disable-directives",
     "lint:package": "sort-package-json",
-    "release": "dotenv yarn build && auto shipit",
-    "storybook": "start-storybook -p 6006"
+    "storybook:release": "dotenv yarn build && auto shipit",
+    "storybook": "start-storybook -p 6006",
+    "build": "rollup -c && babel ./src -d ./dist/es",
+    "start": "npm-run-all -r -p rollup:watch babel:watch",
+    "prepare": "yarn run build",
+    "predeploy": "cd example && yarn install && yarn run build",
+    "rollup:watch": "rollup -c -w",
+    "babel:watch": "babel ./src -d ./dist/es --watch"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@rimble/icons)/)"
+    ]
   },
   "husky": {
     "hooks": {
@@ -25,6 +42,10 @@
   "lint-staged": {
     "*.html": [
       "yarn lint:js --fix"
+    ],
+    "src/**/*.{js,jsx,json,scss,css}": [
+      "prettier --config .prettierrc --write",
+      "git add"
     ],
     "*.js": [
       "yarn lint:js --fix"
@@ -40,10 +61,21 @@
     "@chakra-ui/react": "^1.1.6",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@d8660091/react-popper": "^1.0.4",
+    "@rimble/icons": "^1.0.2",
+    "@styled-system/prop-types": "^5.1.2",
+    "@styled-system/theme-get": "^5.1.2",
+    "@svgr/rollup": "^4.2.0",
     "@types/pluralize": "^0.0.29",
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^3.2.2-rc.1",
     "pluralize": "^8.0.0",
+    "clipboard": "^2.0.4",
+    "ethereum-blockies": "^0.1.1",
+    "mixin-deep": "^2.0.1",
+    "qrcode.react": "^0.9.3",
+    "set-value": "^3.0.1",
+    "styled-system": "^5.1.5",
     "polished": "^3.6.4",
     "prismjs": "1.20.0",
     "prop-types": "^15.5.4",
@@ -62,6 +94,24 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.10.1",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "@storybook/addon-a11y": "^6.1.0",
     "@storybook/addon-actions": "^6.1.0",
     "@storybook/addon-docs": "^6.1.0",
@@ -88,10 +138,17 @@
     "react-dom": "^16.13.1",
     "seedrandom": "^3.0.5",
     "sort-package-json": "^1.44.0",
+    "rollup": "^1.22.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-url": "^2.2.2",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
