@@ -1,21 +1,21 @@
-import Field from './';
-import Input from '../Input';
-import ThemeProvider from '../ThemeProvider';
-import theme from '../theme';
+import Field from './'
+import Input from '../Input'
+import ThemeProvider from '../ThemeProvider'
+import theme from '../theme'
 
 describe('Field component sanity', () => {
   it('has name', () => {
-    expect(Field.displayName).toBe('Field');
-  });
+    expect(Field.displayName).toBe('Field')
+  })
 
   it('matches default snapshot', () => {
     const component = render(
       <Field label="Input label">
         <Input />
       </Field>
-    );
-    expect(component).toMatchSnapshot();
-  });
+    )
+    expect(component).toMatchSnapshot()
+  })
 
   it('matches themed snapshot', () => {
     const component = render(
@@ -24,7 +24,7 @@ describe('Field component sanity', () => {
           <Input />
         </Field>
       </ThemeProvider>
-    );
-    expect(component).toMatchSnapshot();
-  });
-});
+    )
+    expect(component).toMatchSnapshot()
+  })
+})

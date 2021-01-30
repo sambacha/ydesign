@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import Box from '../Box';
-import Flex from '../Flex';
-import Card from '../Card';
-import Text from '../Text';
-import Tooltip from '../Tooltip';
+import Box from '../Box'
+import Flex from '../Flex'
+import Card from '../Card'
+import Text from '../Text'
+import Tooltip from '../Tooltip'
 
-import Icon from '../Icon';
-import Button from '../Button';
-import Input from '../Input';
-import QR from '../QR';
-import Portal from '../Portal';
-import { useHiddenState } from '../Hidden';
-import { ModalBackdrop } from '../Modal';
+import Icon from '../Icon'
+import Button from '../Button'
+import Input from '../Input'
+import QR from '../QR'
+import Portal from '../Portal'
+import { useHiddenState } from '../Hidden'
+import { ModalBackdrop } from '../Modal'
 
-import Clipboard from './CopyToClipboard';
+import Clipboard from './CopyToClipboard'
 
 const StyledInput = styled(Input)`
   text-overflow: ellipsis;
   white-space: nowrap;
-`;
+`
 
 StyledInput.defaultProps = {
   title: 'Ethereum Address',
   'aria-label': 'Ethereum Address',
-};
+}
 
 const StyledWrapper = styled(Box)`
   & {
@@ -36,19 +36,19 @@ const StyledWrapper = styled(Box)`
     width: 100%;
     position: relative;
   }
-`;
+`
 
 const AddressQrModal = ({ isOpen, hide, address }) => {
   const text = {
     title: 'Ethereum Address',
     description:
       'To send funds to this Ethereum address, scan this code using your mobile wallet app',
-  };
+  }
 
   const colors = {
     foreground: 'black',
     background: 'white',
-  };
+  }
 
   if (isOpen) {
     return (
@@ -107,7 +107,7 @@ const AddressQrModal = ({ isOpen, hide, address }) => {
               </Box>
 
               <Clipboard text={address}>
-                {isCopied => (
+                {(isCopied) => (
                   <Box
                     color={'inherit'}
                     position={'relative'}
@@ -139,19 +139,19 @@ const AddressQrModal = ({ isOpen, hide, address }) => {
           </Card>
         </ModalBackdrop>
       </Portal>
-    );
+    )
   }
 
-  return null;
-};
+  return null
+}
 
 const QRButton = ({ address, ...props }) => {
-  const { visible, toggle } = useHiddenState();
+  const { visible, toggle } = useHiddenState()
 
   const text = {
     tooltip: 'Show QR Code',
     button: 'Show QR Code',
-  };
+  }
 
   if (!props.textLabels) {
     return (
@@ -163,7 +163,7 @@ const QRButton = ({ address, ...props }) => {
         </Tooltip>
         <AddressQrModal address={address} isOpen={visible} hide={toggle} />
       </React.Fragment>
-    );
+    )
   }
   return (
     <React.Fragment>
@@ -172,19 +172,19 @@ const QRButton = ({ address, ...props }) => {
       </Button>
       <AddressQrModal address={address} isOpen={visible} hide={toggle} />
     </React.Fragment>
-  );
-};
+  )
+}
 
 const CopyButton = ({ clipboardText, ...props }) => {
   const text = {
     tooltip: 'Copy to clipboard',
     button: 'Copy',
-  };
+  }
 
   if (!props.textLabels) {
     return (
       <Clipboard text={clipboardText}>
-        {isCopied => (
+        {(isCopied) => (
           <Tooltip message={text.tooltip}>
             <Button size={'small'} p={0}>
               <Icon name={isCopied ? 'Check' : 'Assignment'} />
@@ -192,16 +192,16 @@ const CopyButton = ({ clipboardText, ...props }) => {
           </Tooltip>
         )}
       </Clipboard>
-    );
+    )
   }
   return (
     <Clipboard text={clipboardText}>
-      {isCopied => (
+      {(isCopied) => (
         <Button size={'small'}>{!isCopied ? text.button : 'Copied!'}</Button>
       )}
     </Clipboard>
-  );
-};
+  )
+}
 
 class EthAddress extends Component {
   render() {
@@ -229,7 +229,7 @@ class EthAddress extends Component {
           />
         </Flex>
       </StyledWrapper>
-    );
+    )
   }
 }
 
@@ -243,12 +243,12 @@ EthAddress.propTypes = {
    * Changes buttons to text from icons
    */
   textLabels: PropTypes.bool,
-};
+}
 
 EthAddress.defaultProps = {
   textLabels: false,
-};
+}
 
-EthAddress.displayName = 'EthAddress';
+EthAddress.displayName = 'EthAddress'
 
-export default EthAddress;
+export default EthAddress

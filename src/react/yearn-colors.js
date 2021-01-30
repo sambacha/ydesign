@@ -1,4 +1,4 @@
-import { tint, shade, readableColor } from 'polished';
+import { tint, shade, readableColor } from 'polished'
 
 const baseColors = {
   black: '#000',
@@ -9,7 +9,7 @@ const baseColors = {
   red: '#EF1E02',
   yearnblue: '#0657F9',
   prussianblue: '#3259D6',
-};
+}
 
 const colors = {
   yearnblue: {
@@ -42,18 +42,18 @@ const colors = {
     light: [null, tint(0.9, baseColors.red)],
     dark: [null, shade(0.4, baseColors.red)],
   },
-};
+}
 
-const yearnblue = colors.yearnblue;
-const blue = colors.blue;
-const green = colors.green;
-const yellow = colors.yellow;
-const red = colors.red;
+const yearnblue = colors.yearnblue
+const blue = colors.blue
+const green = colors.green
+const yellow = colors.yellow
+const red = colors.red
 
-export { yearnblue };
-export { blue };
-export { green };
-export { yellow };
-export { red };
+export { yearnblue }
+export { blue }
+export { green }
+export { yellow }
+export { red }
 
-export default baseColors;
+export default baseColors

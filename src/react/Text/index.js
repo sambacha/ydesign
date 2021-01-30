@@ -19,19 +19,19 @@ Text.propTypes = {
 
 Text.displayName = 'Text'
 
-Text.span = props => <Text {...props} />
+Text.span = (props) => <Text {...props} />
 Text.span.defaultProps = {
   ...Text.defaultProps,
   as: 'span',
 }
 
-Text.p = props => <Text {...props} />
+Text.p = (props) => <Text {...props} />
 Text.p.defaultProps = {
   ...Text.defaultProps,
   as: 'p',
 }
 
-Text.s = props => <Text {...props} />
+Text.s = (props) => <Text {...props} />
 Text.s.defaultProps = {
   ...Text.defaultProps,
   as: 's',

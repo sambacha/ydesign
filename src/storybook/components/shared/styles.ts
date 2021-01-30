@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import { rgba } from 'polished';
+import { css } from 'styled-components'
+import { rgba } from 'polished'
 
 // Global style variables
 export const background = {
@@ -8,7 +8,7 @@ export const background = {
   positive: '#E1FFD4',
   negative: '#FEDED2',
   warning: '#FFF5CF',
-};
+}
 
 export const color = {
   // Palette
@@ -40,7 +40,7 @@ export const color = {
   positive: '#66BF3C',
   negative: '#FF4400',
   warning: '#E69D00',
-};
+}
 
 export const spacing = {
   padding: {
@@ -52,12 +52,13 @@ export const spacing = {
     small: 5,
     default: 10,
   },
-};
+}
 
 export const typography = {
   type: {
     primary: '"Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
-    code: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    code:
+      '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
   },
   weight: {
     regular: '400',
@@ -77,10 +78,10 @@ export const typography = {
     l3: 48,
     code: 90,
   },
-} as const;
+} as const
 
-export const breakpoint = 600;
-export const pageMargin = 5.55555;
+export const breakpoint = 600
+export const pageMargin = 5.55555
 
 export const pageMargins = css`
   padding: 0 ${spacing.padding.medium}px;
@@ -96,12 +97,13 @@ export const pageMargins = css`
   @media (min-width: ${breakpoint * 4}px) {
     margin: 0 ${pageMargin * 4}%;
   }
-`;
+`
 
 export const hoverEffect = css`
   border: 1px solid ${color.border};
   border-radius: ${spacing.borderRadius.small}px;
-  transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+  transition: background 150ms ease-out, border 150ms ease-out,
+    transform 150ms ease-out;
 
   &:hover,
   &.__hover {
@@ -115,4 +117,4 @@ export const hoverEffect = css`
     border-color: ${rgba(color.secondary, 1)};
     transform: translate3d(0, 0, 0);
   }
-`;
+`
