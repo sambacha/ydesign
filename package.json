@@ -1,6 +1,6 @@
 {
-  "name": "@yfi/aesthetic",
-  "version": "0.0.0",
+  "name": "@yfi/design",
+  "version": "0.1.2",
   "description": "Yearn Aesthetic",
   "license": "MIT",
   "main": "dist/index.umd.js",
