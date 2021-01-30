@@ -1,6 +1,6 @@
 {
   "name": "@yfi/design",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Yearn Aesthetic",
   "license": "MIT",
   "sideEffects": false,
@@ -12,13 +12,13 @@
   ],
   "scripts": {
     "babel:watch": "babel ./src -d ./dist/es --watch",
+    "build": "rollup -c && babel ./src -d ./dist/es",
     "build-docs": "build-storybook --docs",
     "build-storybook": "build-storybook",
     "lint:js": "cross-env NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mjs --report-unused-disable-directives",
     "lint:package": "sort-package-json",
     "predeploy": "cd example && yarn install && yarn run build",
     "prepare": "yarn run build",
-    "build": "rollup -c && babel ./src -d ./dist/es",
     "start": "npm-run-all -r -p rollup:watch babel:watch",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*.test.js\" --ignore \"**/*.stories.js\"",
