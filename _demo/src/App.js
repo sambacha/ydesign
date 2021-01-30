@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react';
 
 import {
-  Avatar,
   Blockie,
   Box,
   Button,
@@ -198,10 +197,10 @@ const testComponents = (props) => (
         spotcolor: '#4E3FCE',
       }}
     />
-    <Avatar src={'https://source.unsplash.com/128x128/?people,face,portrait'} />
-    <Avatar size="small" />
-    <Avatar size="medium" />
-    <Avatar size="large" />
+//    <Avatar src={'https://source.unsplash.com/128x128/?people,face,portrait'} />
+//    <Avatar size="small" />
+//    <Avatar size="medium" />
+//    <Avatar size="large" />
     <Textarea rows={4} defaultValue="Type here…" />
     <Slider />
     <Slider disabled />
