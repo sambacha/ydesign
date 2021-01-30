@@ -2530,10 +2530,10 @@
   resolved "https://registry.npmjs.org/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@yfi/design@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/@yfi/design/-/design-0.2.1.tgz#53bd2187e1c9cb1c829b33c1df1f374ba0b56dd8"
-  integrity sha512-6vQ5WaGjKa3P7GQvKw6PitAZBCg1QH03MjlmTZHH8bKHrv2//2na4nAbwivJmWb/TQv6df8Ei2AUlWAhNaVOwQ==
+"@yfi/design@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/@yfi/design/-/design-0.2.2.tgz#af9e2b5b1b84c5d8d6770ed985938cd04f50f3d7"
+  integrity sha512-ULc8t4PuuvNd9lbG/YLBMlhk7VPCVmT0oTU21reofqWWXO2Edpr+u3A+J0h4PtxYsRz0uYy1o7w46ac30x8SHQ==
   dependencies:
     "@chakra-ui/react" "^1.1.6"
     "@d8660091/react-popper" "^1.0.4"
