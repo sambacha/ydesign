@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RmdIcon from '@yfi/icons/es/Icon'
+import RmdIcon from '@rimble/icons/es/Icon'
 import Box from '../Box'
 import theme from '../theme'
 
