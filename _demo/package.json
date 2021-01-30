@@ -25,7 +25,7 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "@yfi/design": "^0.2.0",
+    "@yfi/design": "^0.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.1.2",
