@@ -1,26 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { buttonStyle, variant, style } from 'styled-system';
-import { StyledBox } from '../Box';
-import Icon from '../Icon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { buttonStyle, variant, style } from 'styled-system'
+import { StyledBox } from '../Box'
+import Icon from '../Icon'
 
 const buttonSize = variant({
   prop: 'size',
   key: 'buttonSizes',
-});
+})
 
 const mainColor = style({
   prop: 'mainColor',
   cssProperty: '--main-color',
   key: 'colors',
-});
+})
 
 const contrastColor = style({
   prop: 'contrastColor',
   cssProperty: '--contrast-color',
   key: 'colors',
-});
+})
 
 const StyledButton = styled(StyledBox)`
   & {
@@ -34,7 +34,7 @@ const StyledButton = styled(StyledBox)`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: ${props => (props.icononly ? '0' : props.p)};
+    padding: ${(props) => (props.icononly ? '0' : props.p)};
   }
 
   &:hover {
@@ -64,10 +64,10 @@ const StyledButton = styled(StyledBox)`
   }
   > div:first-child > svg {
     margin-left: -0.5rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
   > div:last-child > svg {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
     margin-right: -0.5rem;
   }
   > div:first-child:last-child > svg {
@@ -78,11 +78,11 @@ const StyledButton = styled(StyledBox)`
   ${contrastColor}
   ${buttonStyle}
   ${buttonSize}
-`;
+`
 
 StyledButton.defaultProps = {
   as: 'button',
-};
+}
 
 const ButtonBody = ({ children, icon, iconpos }) => {
   if (icon) {
@@ -93,15 +93,15 @@ const ButtonBody = ({ children, icon, iconpos }) => {
         {children && <span className="button-text" children={children} />}
         {icon && iconpos == 'right' && <Icon name={icon} />}
       </React.Fragment>
-    );
+    )
   } else {
-    return <span className="button-text" children={children} />;
+    return <span className="button-text" children={children} />
   }
-};
+}
 
 const Button = React.forwardRef((props, ref) => {
-  return <StyledButton {...props} ref={ref} />;
-});
+  return <StyledButton {...props} ref={ref} />
+})
 
 Button.defaultProps = {
   // base props
@@ -120,7 +120,7 @@ Button.defaultProps = {
   mainColor: 'primary',
   contrastColor: 'white',
   border: 'none',
-};
+}
 
 Button.propTypes = {
   /**
@@ -151,10 +151,10 @@ Button.propTypes = {
    * Sets padding on button with icon and no text
    */
   icononly: PropTypes.bool,
-};
+}
 
-Button.displayName = 'Button';
+Button.displayName = 'Button'
 
-export { StyledButton, ButtonBody };
+export { StyledButton, ButtonBody }
 
-export default Button;
+export default Button

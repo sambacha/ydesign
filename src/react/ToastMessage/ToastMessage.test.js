@@ -1,31 +1,31 @@
-import ToastMessage from './';
-import ThemeProvider from '../ThemeProvider';
-import theme from '../theme';
+import ToastMessage from './'
+import ThemeProvider from '../ThemeProvider'
+import theme from '../theme'
 
 describe('ToastMessage component sanity', () => {
   it('has name', () => {
-    expect(ToastMessage.displayName).toBe('ToastMessage');
-  });
+    expect(ToastMessage.displayName).toBe('ToastMessage')
+  })
 
   it('matches generic snapshot', () => {
-    const toastMessage = shallow(<ToastMessage />).dive();
-    expect(toastMessage).toMatchSnapshot();
-  });
+    const toastMessage = shallow(<ToastMessage />).dive()
+    expect(toastMessage).toMatchSnapshot()
+  })
 
   it('matches processing snapshot', () => {
-    const toastMessage = shallow(<ToastMessage.Processing />).dive();
-    expect(toastMessage).toMatchSnapshot();
-  });
+    const toastMessage = shallow(<ToastMessage.Processing />).dive()
+    expect(toastMessage).toMatchSnapshot()
+  })
 
   it('matches success snapshot', () => {
-    const toastMessage = shallow(<ToastMessage.Success />).dive();
-    expect(toastMessage).toMatchSnapshot();
-  });
+    const toastMessage = shallow(<ToastMessage.Success />).dive()
+    expect(toastMessage).toMatchSnapshot()
+  })
 
   it('matches failure snapshot', () => {
-    const toastMessage = shallow(<ToastMessage.Failure />).dive();
-    expect(toastMessage).toMatchSnapshot();
-  });
+    const toastMessage = shallow(<ToastMessage.Failure />).dive()
+    expect(toastMessage).toMatchSnapshot()
+  })
 
   it('matches full component shallow snapshot', () => {
     const toastMessage = shallow(
@@ -37,9 +37,9 @@ describe('ToastMessage component sanity', () => {
         actionText={'Link'}
         icon={'InfoOutline'}
       />
-    ).dive();
-    expect(toastMessage).toMatchSnapshot();
-  });
+    ).dive()
+    expect(toastMessage).toMatchSnapshot()
+  })
 
   it('matches full component mount snapshot', () => {
     const toastMessage = mount(
@@ -53,41 +53,35 @@ describe('ToastMessage component sanity', () => {
           icon={'InfoOutline'}
         />
       </ThemeProvider>
-    );
-    expect(toastMessage).toMatchSnapshot();
-    toastMessage.unmount();
-  });
-});
+    )
+    expect(toastMessage).toMatchSnapshot()
+    toastMessage.unmount()
+  })
+})
 
 describe('ToastMessage component unit tests', () => {
   it('displays message', () => {
     const toastMessage = mount(
       <ToastMessage message={'Generic message inside Toast'} />
-    );
-    expect(
-      toastMessage
-        .find('Text')
-        .at(0)
-        .text()
-    ).toBe('Generic message inside Toast');
-  });
+    )
+    expect(toastMessage.find('Text').at(0).text()).toBe(
+      'Generic message inside Toast'
+    )
+  })
 
   it('displays secondary message', () => {
     const toastMessage = mount(
       <ToastMessage secondaryMessage={'Lorem ipsum dolor sit.'} />
-    );
-    expect(
-      toastMessage
-        .find('Text')
-        .at(1)
-        .text()
-    ).toBe('Lorem ipsum dolor sit.');
-  });
+    )
+    expect(toastMessage.find('Text').at(1).text()).toBe(
+      'Lorem ipsum dolor sit.'
+    )
+  })
 
   it('displays icon', () => {
-    const toastMessage = shallow(<ToastMessage icon={'Info'} />).dive();
-    expect(toastMessage.exists('Icon')).toEqual(true);
-  });
+    const toastMessage = shallow(<ToastMessage icon={'Info'} />).dive()
+    expect(toastMessage.exists('Icon')).toEqual(true)
+  })
 
   it('creates action Link', () => {
     // const toastMessage = shallow(
@@ -95,7 +89,7 @@ describe('ToastMessage component unit tests', () => {
     // ).dive();
     // expect(toastMessage.exists('Link')).toEqual(true);
     // expect(toastMessage.find('Link').text()).toBe('link text');
-  });
+  })
 
   it('creates action Link', () => {
     const toastMessage = mount(
@@ -109,47 +103,47 @@ describe('ToastMessage component unit tests', () => {
           icon={'InfoOutline'}
         />
       </ThemeProvider>
-    );
+    )
 
-    expect(toastMessage.exists('Link')).toEqual(true);
-    expect(toastMessage.find('Link').text()).toBe('link text');
+    expect(toastMessage.exists('Link')).toEqual(true)
+    expect(toastMessage.find('Link').text()).toBe('link text')
 
-    toastMessage.unmount();
-  });
+    toastMessage.unmount()
+  })
 
   it('displays as processing', () => {
-    const toastMessage = shallow(<ToastMessage.Processing />).dive();
-    expect(toastMessage.prop('variant')).toEqual('processing');
-  });
+    const toastMessage = shallow(<ToastMessage.Processing />).dive()
+    expect(toastMessage.prop('variant')).toEqual('processing')
+  })
 
   it('displays as success', () => {
-    const toastMessage = shallow(<ToastMessage.Success />).dive();
-    expect(toastMessage.prop('variant')).toEqual('success');
-  });
+    const toastMessage = shallow(<ToastMessage.Success />).dive()
+    expect(toastMessage.prop('variant')).toEqual('success')
+  })
 
   it('displays as failure', () => {
-    const toastMessage = shallow(<ToastMessage.Failure />).dive();
-    expect(toastMessage.prop('variant')).toEqual('failure');
-  });
+    const toastMessage = shallow(<ToastMessage.Failure />).dive()
+    expect(toastMessage.prop('variant')).toEqual('failure')
+  })
 
-  it('shows close button', () => {});
+  it('shows close button', () => {})
 
-  it('closes when close button clicked', () => {});
+  it('closes when close button clicked', () => {})
 
-  it('only shows one toast at a time', () => {});
+  it('only shows one toast at a time', () => {})
 
-  it('auto closes the toast', () => {});
+  it('auto closes the toast', () => {})
 
   it('accepts proxy props', () => {
-    const onClick = jest.fn();
-    const toastMessage = mount(<ToastMessage onClick={onClick} />);
+    const onClick = jest.fn()
+    const toastMessage = mount(<ToastMessage onClick={onClick} />)
 
-    expect(toastMessage.at(0).props().onClick).toBe(onClick);
+    expect(toastMessage.at(0).props().onClick).toBe(onClick)
 
-    toastMessage.unmount();
-  });
-});
+    toastMessage.unmount()
+  })
+})
 
 describe('ToastMessage theme applied correctly', () => {
   // No theme tests
-});
+})

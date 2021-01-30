@@ -1,4 +1,4 @@
-import baseColors, { yearnblue, blue, green, yellow, red } from './yearn-colors';
+import baseColors, { yearnblue, blue, green, yellow, red } from './yearn-colors'
 
 // colors
 const colors = {
@@ -53,7 +53,7 @@ const colors = {
   warning: yellow.base,
   danger: red.base,
   info: blue.base,
-};
+}
 
 // theme.js
 const theme = {
@@ -148,6 +148,6 @@ const theme = {
       minWidth: '4rem',
     },
   },
-};
+}
 
-export default theme;
+export default theme

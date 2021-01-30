@@ -7,7 +7,7 @@ import { Warning } from '@yfi/icons/es/md'
 import FileInput from './FileInput'
 import { StyledBox } from '../Box'
 
-const StyledInput = styled(StyledBox).attrs(props => ({
+const StyledInput = styled(StyledBox).attrs((props) => ({
   as: 'input',
 }))`
   & {

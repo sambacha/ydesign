@@ -35,13 +35,13 @@ const StyledWrapper = styled(Box)`
     height: 100%;
     width: 100%;
     pointer-events: none;
-    fill: ${props => themeGet('colors.grey', '#CCC')};
+    fill: ${(props) => themeGet('colors.grey', '#CCC')};
   }
 
   > svg[name='checked'] {
     display: none;
     z-index: 1;
-    fill: ${props => themeGet('colors.primary', '#000')};
+    fill: ${(props) => themeGet('colors.primary', '#000')};
   }
 
   > input:checked ~ svg[name='checked'] {

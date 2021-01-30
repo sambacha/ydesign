@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { ButtonBody } from './BaseButton';
-import SolidButton, { StyledSolidButton } from './SolidButton';
+import { ButtonBody } from './BaseButton'
+import SolidButton, { StyledSolidButton } from './SolidButton'
 
 // outline style
 const StyledOutlineButton = styled(StyledSolidButton)`
@@ -30,7 +30,7 @@ const StyledOutlineButton = styled(StyledSolidButton)`
   &::before {
     opacity: 0;
   }
-`;
+`
 
 const OutlineButton = React.forwardRef(
   ({ children, icon, iconpos, ...props }, ref) => {
@@ -38,15 +38,15 @@ const OutlineButton = React.forwardRef(
       <StyledOutlineButton {...props} ref={ref}>
         <ButtonBody icon={icon} iconpos={iconpos} children={children} />
       </StyledOutlineButton>
-    );
+    )
   }
-);
+)
 
 OutlineButton.defaultProps = {
   ...SolidButton.defaultProps,
   border: 1,
   borderColor: 'grey',
   boxShadow: 0,
-};
+}
 
-export default OutlineButton;
+export default OutlineButton

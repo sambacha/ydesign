@@ -1,11 +1,11 @@
-import Table from './';
-import ThemeProvider from '../ThemeProvider';
-import theme from '../theme';
+import Table from './'
+import ThemeProvider from '../ThemeProvider'
+import theme from '../theme'
 
 describe('Table component sanity', () => {
   it('has name', () => {
-    expect(Table.displayName).toBe('Table');
-  });
+    expect(Table.displayName).toBe('Table')
+  })
 
   it('matches default snapshot', () => {
     const component = render(
@@ -39,9 +39,9 @@ describe('Table component sanity', () => {
           </tr>
         </tbody>
       </Table>
-    );
-    expect(component).toMatchSnapshot();
-  });
+    )
+    expect(component).toMatchSnapshot()
+  })
 
   it('matches themed snapshot', () => {
     const component = render(
@@ -77,7 +77,7 @@ describe('Table component sanity', () => {
           </tbody>
         </Table>
       </ThemeProvider>
-    );
-    expect(component).toMatchSnapshot();
-  });
-});
+    )
+    expect(component).toMatchSnapshot()
+  })
+})

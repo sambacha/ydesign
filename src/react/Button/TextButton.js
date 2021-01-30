@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import Button, { StyledButton, ButtonBody } from './BaseButton';
+import Button, { StyledButton, ButtonBody } from './BaseButton'
 
 // text
 const StyledTextButton = styled(StyledButton)`
@@ -25,7 +25,7 @@ const StyledTextButton = styled(StyledButton)`
   &::before {
     display: none;
   }
-`;
+`
 
 const TextButton = React.forwardRef(
   ({ children, icon, iconpos, ...props }, ref) => {
@@ -33,13 +33,13 @@ const TextButton = React.forwardRef(
       <StyledTextButton {...props} ref={ref}>
         <ButtonBody icon={icon} iconpos={iconpos} children={children} />
       </StyledTextButton>
-    );
+    )
   }
-);
+)
 
 TextButton.defaultProps = {
   ...Button.defaultProps,
   px: 2,
-};
+}
 
-export default TextButton;
+export default TextButton

@@ -1,4 +1,4 @@
-# Yearn  Design System
+# Yearn Design System
 
 ## Overview
 
@@ -33,8 +33,8 @@ Components within the design system assume that a set of global styles have been
 Useful when you don't need any custom `body` styling in the application, typically this would be placed in a layout component that wraps all pages, or a top-level `App` component.
 
 ```javascript
-import { global } from '@storybook/design-system';
-const { GlobalStyle } = global;
+import { global } from '@storybook/design-system'
+const { GlobalStyle } = global
 ```
 
 ```javascript
@@ -47,16 +47,16 @@ const { GlobalStyle } = global;
 Useful when you want build upon the shared global styling.
 
 ```javascript
-import { createGlobalStyle } from 'styled-components';
-import { global } from '@storybook/design-system';
-const { bodyStyles } = global;
+import { createGlobalStyle } from 'styled-components'
+import { global } from '@storybook/design-system'
+const { bodyStyles } = global
 
 const CustomGlobalStyle = createGlobalStyle`
   body {
     ${bodyStyles}
     // Custom body styling for the app
   }
-`;
+`
 ```
 
 ```javascript
@@ -71,21 +71,21 @@ Rather than `@import` fonts in the `GlobalStyle` component, the design system's 
 #### Option 1: Build the link tag manually
 
 ```javascript
-import { global } from '@storybook/design-system';
+import { global } from '@storybook/design-system'
 
-const fontLink = document.createElement('link');
+const fontLink = document.createElement('link')
 
-fontLink.href = global.fontUrl;
-fontLink.rel = 'stylesheet';
+fontLink.href = global.fontUrl
+fontLink.rel = 'stylesheet'
 
-document.head.appendChild(fontLink);
+document.head.appendChild(fontLink)
 ```
 
 #### Option 2: Render the link tag in a component
 
 ```jsx
-import React from 'react';
-import { global } from '@storybook/design-system';
+import React from 'react'
+import { global } from '@storybook/design-system'
 
 const Layout = ({ children }) => (
   <html>
@@ -95,9 +95,9 @@ const Layout = ({ children }) => (
 
     <body>{children}</body>
   </html>
-);
+)
 
-export default Layout;
+export default Layout
 ```
 
 ## Development Scripts
